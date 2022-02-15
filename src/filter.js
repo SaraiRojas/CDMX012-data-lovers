@@ -134,6 +134,7 @@ export const filterLocationBySearch = (films, search) => {
     });
     return locationInclud;
 };
+
 export const filterVehiclesBySearch = (films, search) => {
 
     const vehicleInclud = [];
@@ -149,3 +150,26 @@ export const filterVehiclesBySearch = (films, search) => {
     });
     return vehicleInclud;
 };
+
+export const ordenarMayorMenor = (data, sort) => {
+    data.sort(function (a, b){
+        return Number(b[sort])-Number(a[sort]);})
+    return data;
+};
+
+export const ordenarMenorMayor = (data, sort) => {
+    data.sort(function (a, b) {
+        return Number(a[sort]) - Number(b[sort]);
+    });
+    return data;
+};
+
+export const ordenarAZ = (data, sort) => {
+    data.sort((a, b) => (a[sort] > b[sort]) ? 1: -1)
+    return data
+}
+
+export const ordenarZA = (data, sort) => {
+    data.sort((a, b) => (a[sort] > b[sort]) ? -1: 1)
+    return data
+}
