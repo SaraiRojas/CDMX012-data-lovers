@@ -23,7 +23,6 @@ categoria.addEventListener("change", () => {
 
 ordenarFormulario.addEventListener("change", (e) => {
     ordenar(e);
-
 });
 
 
@@ -61,42 +60,37 @@ const realizarBusqueda = () => {
 let infoFiltrada = "";
 
 const ordenar = (e) => {
+    // nameOption guarda el valor del atrributo name de la opción seleccionada
+    // name es el key que se ocupara como criterio para orenar el array de objetos
+    let nameOption = ordenarFormulario.options[ordenarFormulario.selectedIndex].getAttribute('name');
     let toHTML = '';
 
     if(e.target.value == 'az'){
         if(categoria.value === 'title'){
-            ordenarAZ(infoFiltrada, 'title').forEach((film) => {
+            ordenarAZ(infoFiltrada, nameOption).forEach((film) => {
                 toHTML += GeneratorFilmsHtml(film)
             });
         }else{
-            ordenarAZ(infoFiltrada, 'name').forEach((item) => {
+            ordenarAZ(infoFiltrada, nameOption).forEach((item) => {
                 toHTML += generatorOtherHtml(item)
             });
         }
     }else if(e.target.value == 'za'){
         if(categoria.value === 'title'){
-            ordenarZA(infoFiltrada, 'title').forEach((film) => {
+            ordenarZA(infoFiltrada, nameOption).forEach((film) => {
                 toHTML += GeneratorFilmsHtml(film)
             });
         }else{
-            ordenarZA(infoFiltrada, 'name').forEach((item) => {
+            ordenarZA(infoFiltrada, nameOption).forEach((item) => {
                 toHTML += generatorOtherHtml(item)
             });
         }
-    }else if(e.target.value == 'recent'){
-        ordenarMayorMenor(infoFiltrada, 'release_date').forEach((film) => {
+    }else if(e.target.value == 'mayorMenor'){
+        ordenarMayorMenor(infoFiltrada, nameOption).forEach((film) => {
             toHTML += GeneratorFilmsHtml(film)
         });
-    }else if(e.target.value == 'old'){
-        ordenarMenorMayor(infoFiltrada, 'release_date').forEach((film) => {
-            toHTML += GeneratorFilmsHtml(film)
-        });
-    }else if(e.target.value == 'lowScore'){
-        ordenarMenorMayor(infoFiltrada, 'rt_score').forEach((film) => {
-            toHTML += GeneratorFilmsHtml(film)
-        });
-    }else if(e.target.value == 'highScore'){
-        ordenarMayorMenor(infoFiltrada, 'rt_score').forEach((film) => {
+    }else if(e.target.value == 'menorMayor'){
+        ordenarMenorMayor(infoFiltrada, nameOption).forEach((film) => {
             toHTML += GeneratorFilmsHtml(film)
         });
     }

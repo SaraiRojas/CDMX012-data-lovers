@@ -37,19 +37,19 @@ export function llenarSelector(filtro) {
     if (filtro === 'title') {
         return  `
             <option value="" selected disabled hidden>Sort by</option>
-            <option value="az">A-Z</option>
-            <option value="za">Z-A</option>
-            <option value="recent">Recent</option>
-            <option value="old">Old</option>
-            <option value="highScore">High-score</option>
-            <option value="lowScore">Low-score</option>
+            <option name="title" value="az">A-Z</option>
+            <option name="title" value="za">Z-A</option>
+            <option name="release_date" value="mayorMenor">Recent</option>
+            <option name="release_date" value="menorMayor">Old</option>
+            <option name="rt_score" value="mayorMenor">High-score</option>
+            <option name="rt_score" value="menorMayor">Low-score</option>
         `;
 
     } else {
         return `
             <option value="" selected disabled hidden>Sort by</option>
-            <option value="az">A-Z</option>
-            <option value="za">Z-A</option>
+            <option name="name" value="az">A-Z</option>
+            <option name="name" value="za">Z-A</option>
         `;
     }
 } 

@@ -151,12 +151,26 @@ export const filterVehiclesBySearch = (films, search) => {
     return vehicleInclud;
 };
 
+
+/**
+ * Ordena un set de datos numericos de mayor a menor
+ * @param {array} data array de objetos con la información a ordenar
+ * @param {string} sort key del objeto por el que se ordenara el array
+ * @returns  {array} data array de objetos ordenado
+ */
 export const ordenarMayorMenor = (data, sort) => {
     data.sort(function (a, b){
         return Number(b[sort])-Number(a[sort]);})
     return data;
 };
 
+
+/**
+ * Ordena un set de datos numericos de menor a mayor
+ * @param {array} data array de objetos con la información a ordenar
+ * @param {string} sort key del objeto por el que se ordenara el array
+ * @returns  {array} data array de objetos ordenado
+ */
 export const ordenarMenorMayor = (data, sort) => {
     data.sort(function (a, b) {
         return Number(a[sort]) - Number(b[sort]);
@@ -164,11 +178,23 @@ export const ordenarMenorMayor = (data, sort) => {
     return data;
 };
 
+/**
+ * Ordena un set de datos tipo alfabeticos de A a la Z
+ * @param {array} data array de objetos con la información a ordenar
+ * @param {string} sort key del objeto por el que se ordenara el array
+ * @returns  {array} data array de objetos ordenado
+ */
 export const ordenarAZ = (data, sort) => {
     data.sort((a, b) => (a[sort] > b[sort]) ? 1: -1)
     return data
 }
 
+/**
+ * Ordena un set de datos tipo alfabeticos de Z a la A
+ * @param {array} data array de objetos con la información a ordenar
+ * @param {string} sort key del objeto por el que se ordenara el array
+ * @returns  {array} data array de objetos ordenado
+ */
 export const ordenarZA = (data, sort) => {
     data.sort((a, b) => (a[sort] > b[sort]) ? -1: 1)
     return data
