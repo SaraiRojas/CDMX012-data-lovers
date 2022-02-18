@@ -137,6 +137,73 @@ Prototipo de baja fidelidad
     <p align="center"><strong>Figure 6.</strong> Prototipo Desktop</p>
     <br/>
 
+
+## Historia de usuario #2
+
+    Yo como usuario que es fan de Studio Ghibli quiero poder visualizar los personajes, las locaciones y los vehículos de todas las películas.
+   
+    Criterios de aceptación
+   
+    -Implementar un formulario de opciones con las categorías de filtrado (films, characters, locations, vehicles)
+    -Al seleccionar la categoría, se debe filtrar la información y mostrar en pantalla solo info de la categoría seleccionada
+   
+    Definición de terminado
+    
+    -Cumplir con los criterios de aceptación
+    -Vista en pantalla ya contenga estilo en CSS
+    -El código está desplegado en GitHub
+    -Página responsiva
+    -Test Unitarios
+    -Readme
+    
+El resultado de la visualizacion por categoría y página responsive quedó de la siguiente manera:
+
+<p align="center"><strong>"Personajes"</strong></p>
+
+Tamaño de dispositivo Medium devices (landscape tablets, 768px and up)
+
+<img src="https://user-images.githubusercontent.com/97549396/154549014-16b0ab05-1238-422e-98ef-120c37a875a7.png"/>
+
+Tamaño de dispositivo Large devices (laptops/desktops, 992px and up)
+     
+<img src="https://user-images.githubusercontent.com/97549396/154549096-a2dbff78-bda7-47e3-905c-fcb935bb7d35.png"/>
+
+Tamaño de dispositivo Extra extra large devices (large laptops and desktops, 1400px and up)
+
+<img src="https://user-images.githubusercontent.com/97549396/154549146-23e9aca7-b9db-499f-a6c1-a7699ae36f08.png"/>
+
+
+
+<p align="center"><strong>"Locaciones"</strong></p>
+
+Tamaño de dispositivo Medium devices (landscape tablets, 768px and up)
+
+<img src="https://user-images.githubusercontent.com/97549396/154549362-04dd9b13-dbff-4c14-9708-c5dec12db008.png"/>
+
+Tamaño de dispositivo Large devices (laptops/desktops, 992px and up)
+     
+<img src="https://user-images.githubusercontent.com/97549396/154549466-d4873edf-4433-4937-989f-7bd7448053b3.png"/>
+
+Tamaño de dispositivo Extra extra large devices (large laptops and desktops, 1400px and up)
+
+<img src="https://user-images.githubusercontent.com/97549396/154549517-919d1d3a-79ac-4846-b2a7-7babd045561f.png"/>
+
+
+<p align="center"><strong>"Vehiculos"</strong></p>
+
+Tamaño de dispositivo Medium devices (landscape tablets, 768px and up)
+
+<img src="https://user-images.githubusercontent.com/97549396/154549596-2c676f36-af92-4cf1-a363-ef8c0c5551f5.png"/>
+
+Tamaño de dispositivo Large devices (laptops/desktops, 992px and up)
+     
+<img src="https://user-images.githubusercontent.com/97549396/154549666-d2146e92-e751-40bc-86fc-f79e338c0563.png"/>
+
+Tamaño de dispositivo Extra extra large devices (large laptops and desktops, 1400px and up)
+
+<img src="https://user-images.githubusercontent.com/97549396/154549720-7a54e11c-7217-4293-bef0-052c94d54784.png"/>
+
+
 ## 6. Pistas, tips y lecturas complementarias
 
 ### Primeros pasos
