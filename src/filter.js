@@ -1,11 +1,3 @@
-export function filterYear() {
-    return 'year'
-}
-
-export function filterPoint() {
-    return 'point'
-}
-
 /**
  * Filtra una lista de películas según un texto recibido.
  * @param {[]} films arreglo de peliculas a filtrar
@@ -47,37 +39,6 @@ function peopleFilter(people, search) {
     });
 }
 
-/**
- * Filtra locations cuyo nombre incluya la búsqueda search
- * @param {[]} locations
- * @param {string} search 
- * @returns {[]} locations filtradas
- */
-function locationsFilter(locations, search) {
-    return locations.filter(location => {
-        const locationNameLowercase = location.name.toLowerCase();
-        const searchLowercase = search.toLowerCase();
-
-        if (locationNameLowercase.includes(searchLowercase)) { return true; } else
-            return false;
-    });
-}
-
-/**
- * Filtra persons cuyo nombre incluya la búsqueda search
- * @param {[]} vehicles
- * @param {string} search 
- * @returns {[]} personas filtradas
- */
-function vehiclesFilter(vehicles, search) {
-    return vehicles.filter(vehicle => {
-        const vehicleNameLowercase = vehicle.name.toLowerCase();
-        const searchLowercase = search.toLowerCase();
-
-        if (vehicleNameLowercase.includes(searchLowercase)) { return true; } else
-            return false;
-    });
-}
 
 
 /**
@@ -91,7 +52,7 @@ export function log(obj) {
     } else {
         console.log(type, obj);
     }
-};
+}
 
 /**
  * Filtra y regresa las personas dentro de las películas según el parámetro búsqueda
@@ -135,6 +96,22 @@ export const filterLocationBySearch = (films, search) => {
     return locationInclud;
 };
 
+/**
+ * Filtra locations cuyo nombre incluya la búsqueda search
+ * @param {[]} locations
+ * @param {string} search 
+ * @returns {[]} locations filtradas
+ */
+function locationsFilter(locations, search) {
+    return locations.filter(location => {
+        const locationNameLowercase = location.name.toLowerCase();
+        const searchLowercase = search.toLowerCase();
+
+        if (locationNameLowercase.includes(searchLowercase)) { return true; } else
+            return false;
+    });
+}
+
 export const filterVehiclesBySearch = (films, search) => {
 
     const vehicleInclud = [];
@@ -151,7 +128,21 @@ export const filterVehiclesBySearch = (films, search) => {
     return vehicleInclud;
 };
 
+/**
+ * Filtra vehicle cuyo nombre incluya la búsqueda search
+ * @param {[]} vehicles
+ * @param {string} search 
+ * @returns {[]} personas filtradas
+ */
+function vehiclesFilter(vehicles, search) {
+    return vehicles.filter(vehicle => {
+        const vehicleNameLowercase = vehicle.name.toLowerCase();
+        const searchLowercase = search.toLowerCase();
 
+        if (vehicleNameLowercase.includes(searchLowercase)) { return true; } else
+            return false;
+    });
+}
 /**
  * Ordena un set de datos numericos de mayor a menor
  * @param {array} data array de objetos con la información a ordenar
@@ -159,8 +150,9 @@ export const filterVehiclesBySearch = (films, search) => {
  * @returns  {array} data array de objetos ordenado
  */
 export const ordenarMayorMenor = (data, sort) => {
-    data.sort(function (a, b){
-        return Number(b[sort])-Number(a[sort]);})
+    data.sort(function(a, b) {
+        return Number(b[sort]) - Number(a[sort]);
+    })
     return data;
 };
 
@@ -172,7 +164,7 @@ export const ordenarMayorMenor = (data, sort) => {
  * @returns  {array} data array de objetos ordenado
  */
 export const ordenarMenorMayor = (data, sort) => {
-    data.sort(function (a, b) {
+    data.sort(function(a, b) {
         return Number(a[sort]) - Number(b[sort]);
     });
     return data;
@@ -185,7 +177,7 @@ export const ordenarMenorMayor = (data, sort) => {
  * @returns  {array} data array de objetos ordenado
  */
 export const ordenarAZ = (data, sort) => {
-    data.sort((a, b) => (a[sort] > b[sort]) ? 1: -1)
+    data.sort((a, b) => (a[sort] > b[sort]) ? 1 : -1)
     return data
 }
 
@@ -196,6 +188,6 @@ export const ordenarAZ = (data, sort) => {
  * @returns  {array} data array de objetos ordenado
  */
 export const ordenarZA = (data, sort) => {
-    data.sort((a, b) => (a[sort] > b[sort]) ? -1: 1)
+    data.sort((a, b) => (a[sort] > b[sort]) ? -1 : 1)
     return data
 }

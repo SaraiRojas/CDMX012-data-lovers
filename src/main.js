@@ -1,6 +1,6 @@
 import data from './data/ghibli/ghibli.js';
 import { GeneratorFilmsHtml, generatorOtherHtml, llenarSelector } from './utils/GeneratorFilmsHtml.js';
-import { filterFilmsBySearch, filterCharactersBySearch, filterLocationBySearch, filterVehiclesBySearch, log, ordenarMayorMenor, ordenarMenorMayor, ordenarAZ, ordenarZA } from './filter.js';
+import { filterFilmsBySearch, filterCharactersBySearch, filterLocationBySearch, filterVehiclesBySearch, ordenarMayorMenor, ordenarMenorMayor, ordenarAZ, ordenarZA } from './filter.js';
 
 const inputSearch = document.getElementById("inputSearch");
 const categoria = document.querySelector('#filtrocategoria1');
@@ -30,7 +30,7 @@ const realizarBusqueda = () => {
     const categoriaValue = categoria.value;
     const searchValue = inputSearch.value;
     ordenarFormulario.innerHTML = llenarSelector(categoriaValue);
-    let toHTML = ''; 
+    let toHTML = '';
 
     if (categoriaValue === 'title') {
         filterFilmsBySearch(data.films, searchValue).forEach((film) => {
@@ -65,35 +65,35 @@ const ordenar = (e) => {
     let nameOption = ordenarFormulario.options[ordenarFormulario.selectedIndex].getAttribute('name');
     let toHTML = '';
 
-    if(e.target.value == 'az'){
-        if(categoria.value === 'title'){
+    if (e.target.value == 'az') {
+        if (categoria.value === 'title') {
             ordenarAZ(infoFiltrada, nameOption).forEach((film) => {
                 toHTML += GeneratorFilmsHtml(film)
             });
-        }else{
+        } else {
             ordenarAZ(infoFiltrada, nameOption).forEach((item) => {
                 toHTML += generatorOtherHtml(item)
             });
         }
-    }else if(e.target.value == 'za'){
-        if(categoria.value === 'title'){
+    } else if (e.target.value == 'za') {
+        if (categoria.value === 'title') {
             ordenarZA(infoFiltrada, nameOption).forEach((film) => {
                 toHTML += GeneratorFilmsHtml(film)
             });
-        }else{
+        } else {
             ordenarZA(infoFiltrada, nameOption).forEach((item) => {
                 toHTML += generatorOtherHtml(item)
             });
         }
-    }else if(e.target.value == 'mayorMenor'){
+    } else if (e.target.value == 'mayorMenor') {
         ordenarMayorMenor(infoFiltrada, nameOption).forEach((film) => {
             toHTML += GeneratorFilmsHtml(film)
         });
-    }else if(e.target.value == 'menorMayor'){
+    } else if (e.target.value == 'menorMayor') {
         ordenarMenorMayor(infoFiltrada, nameOption).forEach((film) => {
             toHTML += GeneratorFilmsHtml(film)
         });
     }
-    
+
     section.innerHTML = toHTML;
 }
