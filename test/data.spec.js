@@ -1,42 +1,77 @@
-// import filterFilmsBySearch from '../src/filter';
+import {
+  filterFilmsBySearch, filterCharactersBySearch, filterLocationBySearch, filterVehiclesBySearch,
+  ordenarMayorMenor, ordenarMenorMayor, ordenarAZ, ordenarZA,
+} from '../src/filter.js';
+import data from '../src/data/ghibli/ghibli.js';
 
-const ordenarMayorMenor = (data, sort) => {
-  data.sort((a, b) => Number(b[sort]) - Number(a[sort]));
-  return data;
-};
+describe('filterFilmsBySearch', () => {
+  it('debería ser una función', () => {
+    expect(typeof filterFilmsBySearch).toBe('function');
+  });
 
-const ordenarMenorMayor = (data, sort) => {
-  data.sort((a, b) => Number(a[sort]) - Number(b[sort]));
-  return data;
-};
+  it("debería retornar Kiki's Delivery Service para `kiki`", () => {
+    const res = filterFilmsBySearch(data.films, 'kiki');
 
-const ordenarAZ = (data, sort) => {
-  data.sort((a, b) => ((a[sort] > b[sort]) ? 1 : -1));
-  return data;
-};
+    expect(res).toStrictEqual([data.films[2]]);
 
-const ordenarZA = (data, sort) => {
-  data.sort((a, b) => ((a[sort] > b[sort]) ? -1 : 1));
-  return data;
-};
+    expect(res.length).toEqual(1);
+    expect(res[0].id).toEqual('ea660b10-85c4-4ae3-8a5f-41cea3648e3e');
+    expect(res[0].title).toEqual('Kiki\'s Delivery Service');
+  });
+});
 
-const data = [
-  {
-    name: 'Castle in the Sky',
-    score: '95',
-  },
-  {
-    name: 'When Marnie Was There',
-    score: '90',
-  },
-  {
-    name: 'The Cat Returns',
-    score: '85',
-  },
-  {
-    name: 'My Neighbor Totoro',
-    score: '92',
-  },
+describe('filterCharactersBySearch', () => {
+  it('debería ser una función', () => {
+    expect(typeof filterCharactersBySearch).toBe('function');
+  });
+
+  it('debería retornar jiji para jiji', () => {
+    expect(filterCharactersBySearch(data.films, 'jiji')).toStrictEqual([data.films[2].people[1]]);
+  });
+});
+
+describe('filterLocationBySearch', () => {
+  it('debería ser una función', () => {
+    expect(typeof filterLocationBySearch).toBe('function');
+  });
+
+  it('debería retornar Ingary para inga', () => {
+    expect(filterLocationBySearch(data.films, 'inga')).toStrictEqual([data.films[12].locations[0]]);
+  });
+});
+
+describe('filterVehiclesBySearch ', () => {
+  it('debería ser una función', () => {
+    expect(typeof filterVehiclesBySearch).toBe('function');
+  });
+
+  it('debería retornar "Howl\'s castle" para castle', () => {
+    expect(filterVehiclesBySearch(data.films, 'castle')).toStrictEqual([data.films[12].vehicles[0]]);
+  });
+});
+
+describe('ordenarMayorMenor', () => {
+  it('is a function', () => {
+    expect(typeof ordenarMayorMenor).toBe('function');
+  });
+});
+
+const dataObjeto = [{
+  name: 'Castle in the Sky',
+  score: '95',
+},
+{
+  name: 'When Marnie Was There',
+  score: '90',
+},
+{
+  name: 'The Cat Returns',
+  score: '85',
+},
+{
+  name: 'My Neighbor Totoro',
+  score: '92',
+},
 ];
 
 describe('ordenarMayorMenor', () => {
@@ -46,25 +81,24 @@ describe('ordenarMayorMenor', () => {
 
   it('debería retornar un objeto de array ordenado de mayor a Menor', () => {
     let filtro = 'score';
-    let output = [
-      {
-        name: 'Castle in the Sky',
-        score: '95',
-      },
-      {
-        name: 'My Neighbor Totoro',
-        score: '92',
-      },
-      {
-        name: 'When Marnie Was There',
-        score: '90',
-      },
-      {
-        name: 'The Cat Returns',
-        score: '85',
-      },
+    let output = [{
+      name: 'Castle in the Sky',
+      score: '95',
+    },
+    {
+      name: 'My Neighbor Totoro',
+      score: '92',
+    },
+    {
+      name: 'When Marnie Was There',
+      score: '90',
+    },
+    {
+      name: 'The Cat Returns',
+      score: '85',
+    },
     ];
-    expect(ordenarMayorMenor(data, filtro)).toEqual(output);
+    expect(ordenarMayorMenor(dataObjeto, filtro)).toEqual(output);
   });
 });
 
@@ -75,25 +109,24 @@ describe('ordenarMenorMayor', () => {
 
   it('debería retornar un objeto de array ordenado de menor a mayor', () => {
     let filtro = 'score';
-    let output = [
-      {
-        name: 'The Cat Returns',
-        score: '85',
-      },
-      {
-        name: 'When Marnie Was There',
-        score: '90',
-      },
-      {
-        name: 'My Neighbor Totoro',
-        score: '92',
-      },
-      {
-        name: 'Castle in the Sky',
-        score: '95',
-      },
+    let output = [{
+      name: 'The Cat Returns',
+      score: '85',
+    },
+    {
+      name: 'When Marnie Was There',
+      score: '90',
+    },
+    {
+      name: 'My Neighbor Totoro',
+      score: '92',
+    },
+    {
+      name: 'Castle in the Sky',
+      score: '95',
+    },
     ];
-    expect(ordenarMenorMayor(data, filtro)).toEqual(output);
+    expect(ordenarMenorMayor(dataObjeto, filtro)).toEqual(output);
   });
 });
 
@@ -104,25 +137,24 @@ describe('ordenarAZ', () => {
 
   it('debería retornar un objeto de array ordenado de A a la Z', () => {
     let filtro = 'name';
-    let output = [
-      {
-        name: 'Castle in the Sky',
-        score: '95',
-      },
-      {
-        name: 'My Neighbor Totoro',
-        score: '92',
-      },
-      {
-        name: 'The Cat Returns',
-        score: '85',
-      },
-      {
-        name: 'When Marnie Was There',
-        score: '90',
-      },
+    let output = [{
+      name: 'Castle in the Sky',
+      score: '95',
+    },
+    {
+      name: 'My Neighbor Totoro',
+      score: '92',
+    },
+    {
+      name: 'The Cat Returns',
+      score: '85',
+    },
+    {
+      name: 'When Marnie Was There',
+      score: '90',
+    },
     ];
-    expect(ordenarAZ(data, filtro)).toEqual(output);
+    expect(ordenarAZ(dataObjeto, filtro)).toEqual(output);
   });
 });
 
@@ -133,24 +165,23 @@ describe('ordenarZA', () => {
 
   it('debería retornar un objeto de array ordenado de A a la Z', () => {
     let filtro = 'name';
-    let output = [
-      {
-        name: 'When Marnie Was There',
-        score: '90',
-      },
-      {
-        name: 'The Cat Returns',
-        score: '85',
-      },
-      {
-        name: 'My Neighbor Totoro',
-        score: '92',
-      },
-      {
-        name: 'Castle in the Sky',
-        score: '95',
-      },
+    let output = [{
+      name: 'When Marnie Was There',
+      score: '90',
+    },
+    {
+      name: 'The Cat Returns',
+      score: '85',
+    },
+    {
+      name: 'My Neighbor Totoro',
+      score: '92',
+    },
+    {
+      name: 'Castle in the Sky',
+      score: '95',
+    },
     ];
-    expect(ordenarZA(data, filtro)).toEqual(output);
+    expect(ordenarZA(dataObjeto, filtro)).toEqual(output);
   });
 });
