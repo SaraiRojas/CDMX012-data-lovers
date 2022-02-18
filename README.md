@@ -203,6 +203,36 @@ Tamaño de dispositivo Extra extra large devices (large laptops and desktops, 14
 
 <img src="https://user-images.githubusercontent.com/97549396/154549720-7a54e11c-7217-4293-bef0-052c94d54784.png"/>
 
+## Historia de usuario #3
+
+    Yo como fan quiero poder filtrar las películas , para poder encontrar la que busco fácilmente
+    
+    Criterios de aceptación
+   
+    -Cuando se ingrese en la barra de busqueda el nombre o parte del nombre de la pelicula y darle enter, se deben visualizar los resultados de la busqueda
+    
+    Definición de terminado
+    
+    -Cumplir con los criterios de aceptación
+    -Página responsiva
+    -La pantalla contiene estilos css
+    -README
+    -Pasa los test (pruebas unitarias)
+    -Código en GitHub
+    
+ Ejemplo de los resultados de busqueda (La busqueda se realiza sobre el titulo, descripción y personajes de las peliculas):
+ 
+ Para la busqueda de toto, se visualiza lo siguiente:
+ 
+ <img src="https://user-images.githubusercontent.com/97549396/154559395-5921848c-6175-4c78-a848-213204921446.png"/>
+
+ Para la busqueda de totoro, se visualiza lo siguiente:    
+ 
+  <img src="https://user-images.githubusercontent.com/97549396/154561142-93c90b9f-dd44-40c4-85f0-85408eaa047e.png"/>
+    
+ 
+   
+   
 
 ## 6. Pistas, tips y lecturas complementarias
 
