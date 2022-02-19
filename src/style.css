@@ -185,6 +185,11 @@ input[type="text"] {
   height: auto;
 }
 
+.modal-container {
+  border: 1px solid black;
+  visibility: hidden;
+}
+
 footer {
   background-color: var(--general-color);
   padding: 1.2rem;

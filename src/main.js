@@ -99,3 +99,20 @@ const ordenar = (e) => {
 
   section.innerHTML = toHTML;
 };
+
+// Modal
+
+const cerrar = document.querySelector('.close');
+const abrir = document.querySelector('.galeria'); // Elemenos que van abrir el modal
+// const modal = document.querySelector('.modal');
+const modalContenedor = document.querySelector('.modal-container');
+
+abrir.addEventListener('click', (e) => {
+  if (e.target && e.target.tagName !== 'SECTION') {
+    modalContenedor.style.visibility = 'visible';
+  }
+});
+
+cerrar.addEventListener('click', () => {
+  modalContenedor.style.visibility = 'hidden';
+});
