@@ -1,5 +1,7 @@
 import data from './data/ghibli/ghibli.js';
-import { GeneratorFilmsHtml, generatorOtherHtml, llenarSelector } from './utils/GeneratorFilmsHtml.js';
+import {
+  GeneratorFilmsHtml, generatorOtherHtml, llenarSelector, llenarModal,
+} from './utils/GeneratorFilmsHtml.js';
 import {
   filterFilmsBySearch, filterCharactersBySearch, filterLocationBySearch,
   filterVehiclesBySearch, ordenarMayorMenor, ordenarMenorMayor, ordenarAZ, ordenarZA,
@@ -106,9 +108,18 @@ const cerrar = document.querySelector('.close');
 const abrir = document.querySelector('.galeria'); // Elemenos que van abrir el modal
 // const modal = document.querySelector('.modal');
 const modalContenedor = document.querySelector('.modal-container');
+const modalContenido = document.querySelector('.modal-contenido');
 
 abrir.addEventListener('click', (e) => {
+  console.log(e.target.tagName);
   if (e.target && e.target.tagName !== 'SECTION') {
+    let element = e.target.closest('article');
+    console.log(element);
+    let indexElement = Array.from(element.parentNode.children).indexOf(element);
+    console.log(indexElement);
+    let infoElemento = infoFiltrada[indexElement];
+    console.log(infoElemento);
+    modalContenido.innerHTML = llenarModal(infoElemento, categoria.value);
     modalContenedor.style.visibility = 'visible';
   }
 });
