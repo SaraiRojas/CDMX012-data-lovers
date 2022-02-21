@@ -1,9 +1,17 @@
-import data from './data/ghibli/ghibli.js';
 import { GeneratorFilmsHtml, generatorOtherHtml, llenarSelector } from './utils/GeneratorFilmsHtml.js';
 import {
   filterFilmsBySearch, filterCharactersBySearch, filterLocationBySearch,
   filterVehiclesBySearch, ordenarMayorMenor, ordenarMenorMayor, ordenarAZ, ordenarZA,
 } from './filter.js';
+
+const getData = () => {
+  fetch('./data/ghibli/ghibli.json')
+    .then((res) => res.json())
+    .then((datos) => {
+      console.log(datos);
+      realizarBusqueda(datos);
+    });
+};
 
 const inputSearch = document.getElementById('inputSearch');
 const categoria = document.querySelector('#filtrocategoria1');
@@ -12,23 +20,23 @@ const ordenarFormulario = document.querySelector('#filtroOrdenar');
 
 // Una vez cargado el archivo HTML se ejecuta la función
 document.addEventListener('DOMContentLoaded', () => {
-  realizarBusqueda();
+  getData();
   llenarSelector('title');
 });
 
 inputSearch.addEventListener('change', () => {
-  realizarBusqueda();
+  getData();
 });
 
 categoria.addEventListener('change', () => {
-  realizarBusqueda();
+  getData();
 });
 
 ordenarFormulario.addEventListener('change', (e) => {
   ordenar(e);
 });
 
-const realizarBusqueda = () => {
+const realizarBusqueda = (data) => {
   const categoriaValue = categoria.value;
   const searchValue = inputSearch.value;
   ordenarFormulario.innerHTML = llenarSelector(categoriaValue);
