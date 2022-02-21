@@ -1,4 +1,6 @@
-import { GeneratorFilmsHtml, generatorOtherHtml, llenarSelector } from './utils/GeneratorFilmsHtml.js';
+import {
+  GeneratorFilmsHtml, generatorOtherHtml, llenarSelector, llenarModal,
+} from './utils/GeneratorFilmsHtml.js';
 import {
   filterFilmsBySearch, filterCharactersBySearch, filterLocationBySearch,
   filterVehiclesBySearch, ordenarMayorMenor, ordenarMenorMayor, ordenarAZ, ordenarZA,
