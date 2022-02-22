@@ -63,6 +63,8 @@ export function llenarModal(infoElemento, categoria) {
             rt_score: rtScore,
             title,
             people,
+            locations,
+            vehicles,
 
         } = infoElemento;
 
@@ -74,14 +76,27 @@ export function llenarModal(infoElemento, categoria) {
                 <p class="">${person.name}</p>
                 </div>
             `;
-
         });
 
-        // let people=infoElemento
-        //    people.forEach(person) =>{
-        //   img=person.img;
-        //    name=person.name;
-        // }
+        let htmlLocations = '';
+        locations.forEach(location => {
+            htmlLocations += `
+                <div>  
+                <img class="img-fluid" src="${location.img}">
+                <p class="">${location.name}</p>
+                </div>
+            `;
+        });
+
+        let htmlVehicles = '';
+        vehicles.forEach(vehicle => {
+            htmlVehicles += `
+                <div>  
+                <img class="img-fluid" src="${vehicle.img}">
+                <p class="">${vehicle.name}</p>
+                </div>
+            `;
+        });
 
         info = `
         <article class="article">
@@ -105,21 +120,21 @@ export function llenarModal(infoElemento, categoria) {
         <div class="description">
             <p class="">${description}</p>
         </div>
-
         <div class="linea"></div>
-
         <div class="director-productor">
             <p class="">Director: ${director}</p>
             <p class="">Producer: ${producer}</p>
         </div>
-
         <div class="linea"></div>
-
         <p>Personajes</P>
-        <<div class="grid-personajes">${htmlPeople}</div>
+        <div class="grid-personajes">${htmlPeople}</div>
+        <div class="linea"></div>
+        <p>Locations</p>
+        <div class="grid-locations">${htmlLocations}</div>
+        <div class="linea"></div>
+        <p>Vehicles</p>
+        <div class="grid-vehicles">${htmlVehicles}</div>
        
-
-
             `;
     } else if (categoria === 'people') {
         const {
@@ -133,7 +148,7 @@ export function llenarModal(infoElemento, categoria) {
             title,
         } = infoElemento;
         info = `
-        <p class="">${name}</p>
+        <p class="name-person">${name}</p>
         <p class="">${title}</p>
         <img class="img-fluid" src="${img}">
         <p class="">Specie: ${specie}</p>
@@ -152,7 +167,7 @@ export function llenarModal(infoElemento, categoria) {
             title,
         } = infoElemento;
         info = `
-        <p class="">${name}</p>
+        <p class="name-location">${name}</p>
         <p class="">${title}</p>
         <img class="img-fluid" src="${img}">
         <p class="">Climate: ${climate}</p>
@@ -170,7 +185,7 @@ export function llenarModal(infoElemento, categoria) {
             title,
         } = infoElemento;
         info = `
-        <p class="">${name}</p>
+        <p class="name-vehicle">${name}</p>
         <p class="">${title}</p>
         <img class="img-fluid" src="${img}">
         <p class="">Vehicle class: ${vehicleClass}</p>
