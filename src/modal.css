@@ -1,0 +1,101 @@
+.modal-container {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: #c44a4a;
+    color: #fff;
+    line-height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modal-contenido .article {
+    background-color: #ffffffde;
+    text-align: center;
+    border-radius: 4%;
+    margin: 10px;
+}
+
+.modal-contenido article .portada img {
+    width: 80%;
+    border-radius: 4%;
+}
+
+.modal-contenido .title {
+    font-weight: bold;
+    /* background-color: #ffffffde;
+    text-align: center;
+    border-radius: 4%;
+    border: 1px solid #00000066; */
+}
+
+.modal-contenido article .year-score {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    padding-right: 4em;
+    padding-left: 4em;
+}
+
+.modal {
+    width: 80%;
+    max-height: 90%;
+    background: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.modal-contenido .description {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    padding-right: 2em;
+    padding-left: 2em;
+}
+
+.modal-contenido .linea {
+    border-top: 1px solid black;
+    width: 80%;
+    height: 1px;
+    padding: 0;
+    margin: 5px auto 5px auto;
+}
+
+.modal-contenido .director-productor {
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 15px;
+}
+
+.modal-contenido .grid-personajes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2px;
+    margin-bottom: 1rem;
+}
