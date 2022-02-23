@@ -1,4 +1,3 @@
-import data from './data/ghibli/ghibli.js';
 import {
     GeneratorFilmsHtml,
     generatorOtherHtml,
@@ -16,6 +15,18 @@ import {
     ordenarZA,
 } from './filter.js';
 
+const getData = () => {
+  fetch('./data/ghibli/ghibli.json')
+    .then((res) => res.json())
+    .then((datos) => {
+      console.log(datos);
+      realizarBusqueda(datos);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 const inputSearch = document.getElementById('inputSearch');
 const categoria = document.querySelector('#filtrocategoria1');
 const section = document.querySelector('#informacion');
@@ -23,19 +34,17 @@ const ordenarFormulario = document.querySelector('#filtroOrdenar');
 
 // Una vez cargado el archivo HTML se ejecuta la función
 document.addEventListener('DOMContentLoaded', () => {
-    realizarBusqueda();
-    llenarSelector('title');
-    console.log(infoFiltrada);
+  getData();
+  llenarSelector('title');
+  console.log(infoFiltrada);
 });
 
 inputSearch.addEventListener('change', () => {
-    realizarBusqueda();
-    console.log(infoFiltrada);
+  getData();
 });
 
 categoria.addEventListener('change', () => {
-    realizarBusqueda();
-    console.log(infoFiltrada);
+  getData();
 });
 
 ordenarFormulario.addEventListener('change', (e) => {
@@ -43,35 +52,35 @@ ordenarFormulario.addEventListener('change', (e) => {
     console.log(infoFiltrada);
 });
 
-const realizarBusqueda = () => {
-    const categoriaValue = categoria.value;
-    const searchValue = inputSearch.value;
-    ordenarFormulario.innerHTML = llenarSelector(categoriaValue);
-    let toHTML = '';
+const realizarBusqueda = (data) => {
+  const categoriaValue = categoria.value;
+  const searchValue = inputSearch.value;
+  ordenarFormulario.innerHTML = llenarSelector(categoriaValue);
+  let toHTML = '';
 
-    if (categoriaValue === 'title') {
-        filterFilmsBySearch(data.films, searchValue).forEach((film) => {
-            toHTML += GeneratorFilmsHtml(film);
-        });
-        infoFiltrada = filterFilmsBySearch(data.films, searchValue);
-    } else if (categoriaValue === 'people') {
-        filterCharactersBySearch(data.films, searchValue).forEach((person) => {
-            toHTML += generatorOtherHtml(person);
-        });
-        infoFiltrada = filterCharactersBySearch(data.films, searchValue);
-    } else if (categoriaValue === 'locations') {
-        filterLocationBySearch(data.films, searchValue).forEach((location) => {
-            toHTML += generatorOtherHtml(location);
-        });
-        infoFiltrada = filterLocationBySearch(data.films, searchValue);
-    } else if (categoriaValue === 'vehicles') {
-        filterVehiclesBySearch(data.films, searchValue).forEach((vehicle) => {
-            toHTML += generatorOtherHtml(vehicle);
-        });
-        infoFiltrada = filterVehiclesBySearch(data.films, searchValue);
-    }
+  if (categoriaValue === 'title') {
+    filterFilmsBySearch(data.films, searchValue).forEach((film) => {
+      toHTML += GeneratorFilmsHtml(film);
+    });
+    infoFiltrada = filterFilmsBySearch(data.films, searchValue);
+  } else if (categoriaValue === 'people') {
+    filterCharactersBySearch(data.films, searchValue).forEach((person) => {
+      toHTML += generatorOtherHtml(person);
+    });
+    infoFiltrada = filterCharactersBySearch(data.films, searchValue);
+  } else if (categoriaValue === 'locations') {
+    filterLocationBySearch(data.films, searchValue).forEach((location) => {
+      toHTML += generatorOtherHtml(location);
+    });
+    infoFiltrada = filterLocationBySearch(data.films, searchValue);
+  } else if (categoriaValue === 'vehicles') {
+    filterVehiclesBySearch(data.films, searchValue).forEach((vehicle) => {
+      toHTML += generatorOtherHtml(vehicle);
+    });
+    infoFiltrada = filterVehiclesBySearch(data.films, searchValue);
+  }
 
-    section.innerHTML = toHTML;
+  section.innerHTML = toHTML;
 };
 
 let infoFiltrada = ''; // Al utilizar el método .sort() en las funciones para ordenar se sobreescribe el array por el ordenado

@@ -1,3 +1,4 @@
+// Template strings
 export function GeneratorFilmsHtml(film) {
   return `
     <article>
