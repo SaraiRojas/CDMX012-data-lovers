@@ -129,7 +129,7 @@ const ordenar = (e) => {
 
 // Modal
 
-const cerrar = document.querySelector('.close');
+const cerrarX = document.querySelector('.close');
 const abrir = document.querySelector('.galeria'); // Elemenos que van abrir el modal
 // const modal = document.querySelector('.modal');
 const modalContenedor = document.querySelector('.modal-container');
@@ -153,6 +153,25 @@ abrir.addEventListener('click', (e) => {
     }
 });
 
-cerrar.addEventListener('click', () => {
+cerrarX.addEventListener('click', () => {
     modalContenedor.style.visibility = 'hidden';
 });
+
+modalContenedor.addEventListener('click', (event) => {
+    if (event.target == modalContenedor) {
+        modalContenedor.style.visibility = 'hidden';
+    }
+});
+
+// window.onclick = function(event) {
+//     if (event.target == modalContenedor) {
+//         modalContenedor.style.visibility = 'hidden';
+//     }
+// };
+
+window.addEventListener("keyup", function(event) {
+    if (event.keyUp == 27) {
+        modalContenedor.style.visibility = 'hidden';
+        //Cierras tu ventana
+    }
+}, false);
