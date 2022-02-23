@@ -1,5 +1,6 @@
+// Template strings
 export function GeneratorFilmsHtml(film) {
-    return `
+  return `
     <article>
         <div class="portada">
             <img class="img-fluid" src="${film.poster}">
@@ -19,7 +20,7 @@ export function GeneratorFilmsHtml(film) {
 }
 
 export function generatorOtherHtml(film) {
-    return `
+  return `
     <article>
         <div class="portada">
         <img class="img-fluid" src="${film.img}">
@@ -33,8 +34,8 @@ export function generatorOtherHtml(film) {
 }
 
 export function llenarSelector(filtro) {
-    if (filtro === 'title') {
-        return `
+  if (filtro === 'title') {
+    return `
             <option value="" selected disabled hidden>Sort by</option>
             <option name="title" value="az">A-Z</option>
             <option name="title" value="za">Z-A</option>
@@ -43,8 +44,8 @@ export function llenarSelector(filtro) {
             <option name="rt_score" value="mayorMenor">High-score</option>
             <option name="rt_score" value="menorMayor">Low-score</option>
         `;
-    }
-    return `
+  }
+  return `
             <option value="" selected disabled hidden>Sort by</option>
             <option name="name" value="az">A-Z</option>
             <option name="name" value="za">Z-A</option>
@@ -52,56 +53,56 @@ export function llenarSelector(filtro) {
 }
 
 export function llenarModal(infoElemento, categoria) {
-    let info = '';
-    if (categoria === 'title') {
-        const {
-            description,
-            director,
-            poster,
-            producer,
-            release_date: releaseDate,
-            rt_score: rtScore,
-            title,
-            people,
-            locations,
-            vehicles,
+  let info = '';
+  if (categoria === 'title') {
+    const {
+      description,
+      director,
+      poster,
+      producer,
+      release_date: releaseDate,
+      rt_score: rtScore,
+      title,
+      people,
+      locations,
+      vehicles,
 
-        } = infoElemento;
+    } = infoElemento;
 
-        let htmlPeople = '';
-        people.forEach(person => {
-            htmlPeople += `
+    let htmlPeople = '';
+    people.forEach((person) => {
+      htmlPeople += `
                 <div>  
                 <img class="img-fluid" src="${person.img}">
                 <p class="">${person.name}</p>
                 </div>
             `;
-        });
+    });
 
-        let htmlLocations = '';
-        locations.forEach(location => {
-            htmlLocations += `
+    let htmlLocations = '';
+    locations.forEach((location) => {
+      htmlLocations += `
                 <div>  
                 <img class="img-fluid" src="${location.img}">
                 <p class="">${location.name}</p>
                 </div>
             `;
-        });
+    });
 
-        let htmlVehicles = '';
-        vehicles.forEach(vehicle => {
-            htmlVehicles += `
+    let htmlVehicles = '';
+    vehicles.forEach((vehicle) => {
+      htmlVehicles += `
                 <div>  
                 <img class="img-fluid" src="${vehicle.img}">
                 <p class="">${vehicle.name}</p>
                 </div>
             `;
-        });
+    });
 
-        info = `
+    info = `
         <article class="article">
             <div class="portada">
-                <img class="img-fluid" src="${poster}">
+                <img class="img-fluidM" src="${poster}">
             </div>
             <div class="infoPeli">
                 <p class="title">${title}</p>
@@ -126,73 +127,79 @@ export function llenarModal(infoElemento, categoria) {
             <p class="">Producer: ${producer}</p>
         </div>
         <div class="linea"></div>
-        <p>Personajes</P>
+        <p id="characters">Characters</P>
         <div class="grid-personajes">${htmlPeople}</div>
         <div class="linea"></div>
-        <p>Locations</p>
+        <p id="locations">Locations</p>
         <div class="grid-locations">${htmlLocations}</div>
         <div class="linea"></div>
-        <p>Vehicles</p>
+        <p id="vehicles">Vehicles</p>
         <div class="grid-vehicles">${htmlVehicles}</div>
        
             `;
-    } else if (categoria === 'people') {
-        const {
-            age,
-            eye_color: eyeColor,
-            gender,
-            hair_color: hairColor,
-            img,
-            name,
-            specie,
-            title,
-        } = infoElemento;
-        info = `
+  } else if (categoria === 'people') {
+    const {
+      age,
+      eye_color: eyeColor,
+      gender,
+      hair_color: hairColor,
+      img,
+      name,
+      specie,
+      title,
+    } = infoElemento;
+    info = `
         <p class="name-person">${name}</p>
-        <p class="">${title}</p>
-        <img class="img-fluid" src="${img}">
-        <p class="">Specie: ${specie}</p>
-        <p class="">Gender: ${gender}</p>
-        <p class="">Age: ${age}</p>
-        <p class="">Eye color: ${eyeColor}</p>
-        <p class="">Hair color: ${hairColor}</p> 
+        <p class="titlemodal">${title}</p>
+        <div class="portada">
+            <img class="img-fluidM" src="${img}">
+        </div>
+        <p class="details">Specie: ${specie}</p>
+        <p class="details">Gender: ${gender}</p>
+        <p class="details">Age: ${age}</p>
+        <p class="details">Eye color: ${eyeColor}</p>
+        <p class="details">Hair color: ${hairColor}</p> 
             `;
-    } else if (categoria === 'locations') {
-        const {
-            climate,
-            img,
-            name,
-            surface_water: surfaceWater,
-            terrain,
-            title,
-        } = infoElemento;
-        info = `
+  } else if (categoria === 'locations') {
+    const {
+      climate,
+      img,
+      name,
+      surface_water: surfaceWater,
+      terrain,
+      title,
+    } = infoElemento;
+    info = `
         <p class="name-location">${name}</p>
-        <p class="">${title}</p>
-        <img class="img-fluid" src="${img}">
-        <p class="">Climate: ${climate}</p>
-        <p class="">Surface water: ${surfaceWater}</p>
-        <p class="">Terrain: ${terrain}</p>
+        <p class="titlemodal">${title}</p>
+        <div class="portada">
+            <img class="img-fluidM" src="${img}">
+        </div>
+        <p class="details">Climate: ${climate}</p>
+        <p class="details">Surface water: ${surfaceWater}</p>
+        <p class="details">Terrain: ${terrain}</p>
             `;
-    } else if (categoria === 'vehicles') {
-        const {
-            description,
-            img,
-            length,
-            name,
-            pilot,
-            vehicle_class: vehicleClass,
-            title,
-        } = infoElemento;
-        info = `
+  } else if (categoria === 'vehicles') {
+    const {
+      description,
+      img,
+      length,
+      name,
+      pilot,
+      vehicle_class: vehicleClass,
+      title,
+    } = infoElemento;
+    info = `
         <p class="name-vehicle">${name}</p>
-        <p class="">${title}</p>
-        <img class="img-fluid" src="${img}">
-        <p class="">Vehicle class: ${vehicleClass}</p>
-        <p class="">${description}</p>
-        <p class="">Length: ${length}</p>
-        <p class="">Pilot: ${pilot.name}</p>
+        <p class="titlemodal">${title}</p>
+        <div class="portada">
+            <img class="img-fluidM" src="${img}">
+        </div>
+        <p class="details">Vehicle class: ${vehicleClass}</p>
+        <p class="details">${description}</p>
+        <p class="details">Length: ${length}</p>
+        <p class="details">Pilot: ${pilot.name}</p>
             `;
-    }
-    return info;
+  }
+  return info;
 }

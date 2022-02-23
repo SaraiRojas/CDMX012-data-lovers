@@ -1,134 +1,238 @@
-    .modal-container {
-        position: fixed;
-        z-index: 1000;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background: rgba(0, 0, 0, 0.9);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        visibility: hidden;
-    }
-    
-    .close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        background: #c44a4a;
-        color: #fff;
-        line-height: 25px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-    
-    .modal-contenido .article {
-        text-align: center;
-        border-radius: 4%;
-        margin: 10px;
-    }
-    
-    .modal-contenido article .portada img {
-        width: 80%;
-        border-radius: 4%;
-    }
-    
-    .modal-contenido .title {
-        font-weight: bold;
-        /* background-color: #ffffffde;
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+    font-family: "Gothic A1", sans-serif;
+}
+
+.modal-container {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: #c44a4a;
+    color: #fff;
+    line-height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modal-contenido {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-contenido .article {
+    background-color: #ffffffde;
+    text-align: center;
+    border-radius: 4%;
+    margin: 10px;
+}
+
+.modal-contenido article .portada img {
+    width: 80%;
+    border-radius: 4%;
+}
+
+.modal-contenido .title {
+    font-weight: bold;
+    /* background-color: #ffffffde;
     text-align: center;
     border-radius: 4%;
     border: 1px solid #00000066; */
+}
+
+.modal-contenido article .year-score {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    padding-right: 4em;
+    padding-left: 4em;
+}
+
+.modal {
+    width: 80%;
+    max-height: 90%;
+    background: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.modal-contenido .description {
+    width: 100%;
+    align-self: center;
+    font-size: 15px;
+    padding-right: 2em;
+    padding-left: 2em;
+}
+
+.modal-contenido .linea {
+    border-top: 1px solid black;
+    width: 80%;
+    height: 1px;
+    padding: 0;
+    margin: 5px auto 5px auto;
+}
+
+.modal-contenido .director-productor {
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 15px;
+}
+
+.modal-contenido .grid-personajes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2px;
+    margin-bottom: 1rem;
+}
+
+.modal-contenido .grid-locations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2px;
+    margin-bottom: 1rem;
+}
+
+.modal-contenido .grid-vehicles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2px;
+    margin-bottom: 1rem;
+}
+
+.modal-contenido .name-person {
+    font-weight: bold;
+}
+
+.modal-contenido .img-fluid {
+    width: 80%;
+    border-radius: 4%;
+}
+
+.modal-contenido .name-location {
+    font-weight: bold;
+}
+
+.modal-contenido .name-vehicle {
+    font-weight: bold;
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {
+    .close {
+        top: 15px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
     }
-    
-    .modal-contenido article .year-score {
-        display: flex;
-        justify-content: space-around;
-        align-items: end;
-        padding-right: 4em;
-        padding-left: 4em;
+    .modal-contenido article .portada img {
+        width: 50%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
-    
-    .modal {
-        width: 80%;
-        max-height: 90%;
-        background: #ffffffde;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        /* justify-content: space-evenly; */
-        position: relative;
-        border-radius: 10px;
-        overflow: hidden;
-        overflow-y: auto;
-    }
-    
-    .modal-contenido .description {
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        font-size: 15px;
-        padding-right: 2em;
-        padding-left: 2em;
-    }
-    
-    .modal-contenido .linea {
-        border-top: 1px solid black;
-        width: 80%;
-        height: 1px;
-        padding: 0;
-        margin: 5px auto 5px auto;
-    }
-    
-    .modal-contenido .director-productor {
-        justify-content: center;
-        align-items: center;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        font-size: 15px;
-    }
-    
-    .modal-contenido .grid-personajes {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 2px;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .modal-contenido .grid-locations {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 2px;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .modal-contenido .grid-vehicles {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 2px;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .modal-contenido .name-person {
+    .modal-contenido .title {
         font-weight: bold;
+        font-size: 30px;
+        margin-bottom: 2rem;
     }
-    
-    .modal-contenido .img-fluid {
+    .modal-contenido article .year-score {
+        justify-content: space-evenly;
+        padding-right: 6em;
+        padding-left: 6em;
+        margin-bottom: 1rem;
+        font-size: 30px;
+    }
+    .modal-contenido .description {
         width: 80%;
+        align-self: center;
+        font-size: 20px;
+        padding-right: 0em;
+        padding-left: 0em;
+        margin-bottom: 1rem;
+    }
+    .modal-contenido .director-productor {
+        font-size: 20px;
+    }
+    #characters,
+    #locations,
+    #vehicles {
+        font-size: 30px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .modal-contenido .grid-personajes,
+    .modal-contenido .grid-locations,
+    .modal-contenido .grid-vehicles {
+        width: 80%;
+        align-content: center;
+        margin: auto;
+        margin-bottom: 2rem;
+    }
+    .modal-contenido .name-person,
+    .modal-contenido .name-location,
+    .modal-contenido .name-vehicle {
+        margin-top: 2rem;
+        font-size: 25px;
+    }
+    .titlemodal {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 20px;
+    }
+    .modal-contenido .img-fluidM {
+        width: 40%;
+        border-radius: 4%;
+        margin-bottom: 1rem;
+    }
+    .details {
+        margin-bottom: 1rem;
+        font-size: 20px;
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+    .modal {
+        width: 50%;
+        max-height: 90%;
+    }
+    .modal-contenido article .portada img {
+        width: 30%;
+    }
+    .modal-contenido .img-fluidM {
+        width: 30%;
         border-radius: 4%;
     }
-    
-    .modal-contenido .name-location {
-        font-weight: bold;
-    }
-    
-    .modal-contenido .name-vehicle {
-        font-weight: bold;
-    }
+}
+
+
+/* Extra extra large devices (large laptops and desktops, 1400px and up) */
+
+@media only screen and (min-width: 1400px) {}
