@@ -12,6 +12,9 @@ const getData = () => {
     .then((datos) => {
       console.log(datos);
       realizarBusqueda(datos);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 };
 
