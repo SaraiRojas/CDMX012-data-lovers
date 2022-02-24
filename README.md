@@ -2,46 +2,55 @@
 
 ## Índice
 
-- [1. Preámbulo](#1-preámbulo)
-- [2. Resumen del proyecto](#2-resumen-del-proyecto)
-- [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-- [4. Consideraciones generales](#4-consideraciones-generales)
-- [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-- [6. Hacker edition](#6-hacker-edition)
-- [7. Consideraciones técnicas](#7-consideraciones-técnicas)
-- [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
+- [1. Resumen del proyecto](#1-resumen-del-proyecto)
+- [2. Imagenes proyecto finalizado](#2-Imagenes-proyecto-finalizado)
+- [3. UX Research](#5-UX-research)
 
 ---
 
 # 1. Resumen del proyecto
 
-En este proyecto **construirás una _página web_ para visualizar un
-_conjunto (set) de datos_** que se adecúe a lo que descubras que tu usuario
-necesita.
+Este proyecto **consiste en una _página web_ para visualizar un
+_conjunto (set) de datos_** de Studio Ghibli.
 
-Como entregable final tendrás una página web que permita **visualizar la data,
-filtrarla, ordenarla y hacer algún cálculo agregado**. Con cálculo agregado
-nos referimos a distintos cálculos que puedes hacer con la data para mostrar
-información aún más relevante para los usuarios (promedio, el valor máximo
-o mínimo, etc).
+Esta página web permite visualizar las películas producidas por Studio Ghibli, así como personajes, locaciones y vehículos. Esta información puede ser ordenada alfabéticamente ( A-Z / Z-A) y en el caso de películas por fecha de estreno y puntaje. Tambien se puede filtrar la información mediante una barra de busqueda. Al seleccionar un elemento desplegado en pantalla se muestra un modal con información más detallada (Figura 4).
 
-Esta vez te proponemos una serie de datos de diferentes _temáticas_ para que
-explores y decidas con qué temática te interesa trabajar. Hemos elegido
-específicamente estos sets de datos porque creemos que se adecúan bien a esta
-etapa de tu aprendizaje.
+### Desarrollado con
 
-Una vez que definas tu área de interés, buscar entender quién es tu usuario
-y qué necesita saber o ver exactamente; luego podrás construir la interfaz que
-le ayude a interactuar y entender mejor esos datos.
+- [HTML](https://developer.mozilla.org/en-US/docs/Glossary/HTML)
+- [JavaScript](https://www.javascript.com/)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-El objetivo principal de este proyecto es que aprendas a diseñar y construir una
-interfaz web donde se pueda visualizar y manipular data, entendiendo lo que el
-usuario necesita.
+# 2. Imagenes proyecto finalizado
 
-# 2. Final project image
+<p align="center">
+<img 
+height = "600"
+src="https://user-images.githubusercontent.com/97549396/154549014-16b0ab05-1238-422e-98ef-120c37a875a7.png"/>
+</p>
+<p align="center"><strong>Figura 1. </strong> Tamaño de dispositivo small devices (mobile)</p>
+<br/>
 
-<img src=""/>
-<p align="center"><strong>Figure 1.</strong> Final project image</p>
+<p align="center">
+<img 
+height = "600"
+src="https://user-images.githubusercontent.com/97549396/154549096-a2dbff78-bda7-47e3-905c-fcb935bb7d35.png"/>
+</p>     
+<p align="center"><strong>Figura 2.</strong> Tamaño de dispositivo medium devices (tablets, 768px and up)</p>
+<br/>
+
+<p align="center">
+<img 
+src="images/desktopDL.JPG"/>
+</p>     
+<p align="center"><strong>Figura 3.</strong> Tamaño de dispositivo Large devices (laptops/desktops, 992px and up)</p>
+<br/>
+
+<p align="center">
+<img 
+src="images/modal.JPG"/>
+</p>     
+<p align="center"><strong>Figura 4.</strong>Modal</p>
 <br/>
 
 # 3. UX research
@@ -78,182 +87,65 @@ hallazgos.
 - Adicionalmente a esta información, para nuestras usuarias es importante poder
   ver los tipos de especies que hay en cada animación.
 
-# 4. Historias de usuario
+## Historia de usuario
 
-## Historia de usuario #1
+Las historias de usuario de este proyecto se encuentan en el siguiente enlace: https://trello.com/b/KSyHngwu/project-2-data-lovers
 
-    Yo como usuario que es fan de Studio Ghibli quiero visualizar las películas de Studio Ghibli que han sido producidas
+## Prototipo de baja fidelidad
 
-    Criterios de aceptación
+Se realizó un prototipo de baja fidelidad y alta fidelidal. Tambien se llevo acabo pruebas de usabilidad.
 
-    - Al ingresar a la página ya se puede visualizar todas los carteles de las películas del estudio
-    - Cada elemento que muestre los carteles de películas también contenga nombre y año de estreno
+<p align="center">
+  <img
+  height = "400" 
+  src="images\prototipoBajaFidelidad1.jpg"/>
+</p>
+<p align="center"><strong>Figura 5.</strong> Prototipo de baja fidelidad</p>
+<br/>
 
-    Definición de terminado
+## Pruebas de usabilidad
 
-    - Cumplir con los criterios de aceptación
-    - La vista ya contiene diseño CSS
-    - Pagina responsiva
-    - Test usabilidad
-    - El código esta desplegado en GitHub
+Para la prueba de usabilidad del prototipo 1 se entrevisto a diez usuarias. Las preguntas realizadas fueron las siguientes:
 
-Prototipo de baja fidelidad
+1. ¿Consideraras que el diseño de la página facilita la busqueda de la información?
+2. ¿Hay algun elemento dentro de la página que te cause confusion?
+3. ¿Tienes algun otro comentario?
 
-  <img src="images\prototipoBajaFidelidad1.jpg"/>
-        <p align="center"><strong>Figura 2.</strong> Prototipo de baja fidelidad</p>
-        <br/>
+De las respuestas obtenidas se llegaron a las siguientes conclusiones
 
-4.  Pruebas de usabilidad
+- En el prototipo se propone poner el nombre de la vista 'HOME'. Sin embargo, esto causa confusion sobre su significado.
+- Las usuarias recomendaron evitar un exceso de espacio vacio en los costados de la página
+- Se cuestiono si era relebante mostrar información sobre el staff que trabajo en la realización de las películas.
 
-    Para la prueba de usabilidad del prototipo 1 se entrevisto a diez usuarias. Las preguntas realizadas fueron las siguientes:
+Aparte de los comentarios anteriores, durante en feedback en la ceremonia de demos se sugirió mostrar la información de una forma más directa, para que fuera lo primera que viera la usuaria al ingresar a la página.
 
-    1. ¿Consideraras que el diseño de la página facilita la busqueda de la información?
-    2. ¿Hay algun elemento dentro de la página que te cause confusion?
-    3. ¿Tienes algun otro comentario?
+Con base en los resultados de las pruebas de usabilidad y feedback se realizaron los siguientes cambios:
 
-    De las respuestas obtenidas se llegaron a las siguientes conclusiones
+- Eliminar el 'HOME'
+- No se dara la opción de filtar por staff, ya que aunado a los comentarios de las pruebas de usabilidad, la base de datos de Studio Ghibli no contiene datos suficientes para mostrar en pantalla.
+- La información sera desplegada en la primera vista de la página, para permitir filtrarla se agregará formularios para filtrar y ordenar, además de una barra de busqueda para busquedas más puntuales.
 
-    - En el prototipo se propone poner el nombre de la vista 'HOME'. Sin embargo, esto causa confusion sobre su significado.
-    - Las usuarias recomendaron evitar un exceso de espacio vacio en los costados de la página
-    - Se cuestiono si era relebante mostrar información sobre el staff que trabajo en la realización de las películas.
+## Prototipo de alta fidelidad
 
-    Aparte de los comentarios anteriores, durante en feedback en la ceremonia de demos se sugirió mostrar la información de una forma más directa, para que fuera lo primera que viera la usuaria al ingresar a la página.
+<p align="center">
+<img 
+height = "600"
+src="images\Movilemovil.png"/>
+</p>
+<p align="center"><strong>Figura 6.</strong> Prototipo movil</p>
+<br/>
 
-    Con base en los resultados de las pruebas de usabilidad y feedback se realizaron los siguientes cambios:
+<p align="center">
+<img 
+height = "600"
+src="images\TablettabletLan.png"/>
+</p>
+<p align="center"><strong>Figura 7.</strong> Prototipo tablet</p>
+<br/>
 
-    - Eliminar el 'HOME'
-    - No se dara la opción de filtar por staff, ya que aunado a los comentarios de las pruebas de usabilidad, la base de datos de Studio Ghibli no contiene datos suficientes para mostrar en pantalla.
-    - La información sera desplegada en la primera vista de la página, para permitir filtrarla se agregará formularios para filtrar y ordenar, además de una barra de busqueda para busquedas más puntuales.
-
-5.  Prototipo de alta fidelidad
-
-<img src="images\Movilemovil.png"/>
-    <p align="center"><strong>Figure 4.</strong> Prototipo movil</p>
-    <br/>
-<img src="images\TablettabletLan.png"/>
-    <p align="center"><strong>Figure 5.</strong> Prototipo tablet</p>
-    <br/>
-<img src="images\Desktop Lan-desktop.png"/>
-    <p align="center"><strong>Figure 6.</strong> Prototipo Desktop</p>
-    <br/>
-
-
-## Historia de usuario #2
-
-    Yo como usuario que es fan de Studio Ghibli quiero poder visualizar los personajes, las locaciones y los vehículos de todas las películas.
-   
-    Criterios de aceptación
-   
-    -Implementar un formulario de opciones con las categorías de filtrado (films, characters, locations, vehicles)
-    -Al seleccionar la categoría, se debe filtrar la información y mostrar en pantalla solo info de la categoría seleccionada
-   
-    Definición de terminado
-    
-    -Cumplir con los criterios de aceptación
-    -Vista en pantalla ya contenga estilo en CSS
-    -El código está desplegado en GitHub
-    -Página responsiva
-    -Test Unitarios
-    -Readme
-    
-El resultado de la visualizacion por categoría y página responsive quedó de la siguiente manera:
-
-<p align="center"><strong>"Personajes"</strong></p>
-
-Tamaño de dispositivo Medium devices (landscape tablets, 768px and up)
-
-<img src="https://user-images.githubusercontent.com/97549396/154549014-16b0ab05-1238-422e-98ef-120c37a875a7.png"/>
-
-Tamaño de dispositivo Large devices (laptops/desktops, 992px and up)
-     
-<img src="https://user-images.githubusercontent.com/97549396/154549096-a2dbff78-bda7-47e3-905c-fcb935bb7d35.png"/>
-
-Tamaño de dispositivo Extra extra large devices (large laptops and desktops, 1400px and up)
-
-<img src="https://user-images.githubusercontent.com/97549396/154549146-23e9aca7-b9db-499f-a6c1-a7699ae36f08.png"/>
-
-
-
-<p align="center"><strong>"Locaciones"</strong></p>
-
-Tamaño de dispositivo Medium devices (landscape tablets, 768px and up)
-
-<img src="https://user-images.githubusercontent.com/97549396/154549362-04dd9b13-dbff-4c14-9708-c5dec12db008.png"/>
-
-Tamaño de dispositivo Large devices (laptops/desktops, 992px and up)
-     
-<img src="https://user-images.githubusercontent.com/97549396/154549466-d4873edf-4433-4937-989f-7bd7448053b3.png"/>
-
-Tamaño de dispositivo Extra extra large devices (large laptops and desktops, 1400px and up)
-
-<img src="https://user-images.githubusercontent.com/97549396/154549517-919d1d3a-79ac-4846-b2a7-7babd045561f.png"/>
-
-
-<p align="center"><strong>"Vehiculos"</strong></p>
-
-Tamaño de dispositivo Medium devices (landscape tablets, 768px and up)
-
-<img src="https://user-images.githubusercontent.com/97549396/154549596-2c676f36-af92-4cf1-a363-ef8c0c5551f5.png"/>
-
-Tamaño de dispositivo Large devices (laptops/desktops, 992px and up)
-     
-<img src="https://user-images.githubusercontent.com/97549396/154549666-d2146e92-e751-40bc-86fc-f79e338c0563.png"/>
-
-Tamaño de dispositivo Extra extra large devices (large laptops and desktops, 1400px and up)
-
-<img src="https://user-images.githubusercontent.com/97549396/154549720-7a54e11c-7217-4293-bef0-052c94d54784.png"/>
-
-## Historia de usuario #3
-
-    Yo como fan quiero poder filtrar las películas , para poder encontrar la que busco fácilmente
-    
-    Criterios de aceptación
-   
-    -Cuando se ingrese en la barra de busqueda el nombre o parte del nombre de la pelicula y darle enter, se deben visualizar los resultados de la busqueda
-    
-    Definición de terminado
-    
-    -Cumplir con los criterios de aceptación
-    -Página responsiva
-    -La pantalla contiene estilos css
-    -README
-    -Pasa los test (pruebas unitarias)
-    -Código en GitHub
-    
- Ejemplo de los resultados de busqueda (La busqueda se realiza sobre el titulo, descripción y personajes de las peliculas):
- 
- Para la busqueda de toto, se visualiza lo siguiente:
- 
- <img src="https://user-images.githubusercontent.com/97549396/154559395-5921848c-6175-4c78-a848-213204921446.png"/>
-
- Para la busqueda de totoro, se visualiza lo siguiente:    
- 
-  <img src="https://user-images.githubusercontent.com/97549396/154561142-93c90b9f-dd44-40c4-85f0-85408eaa047e.png"/>
-    
- 
-   
-   
-
-## 6. Pistas, tips y lecturas complementarias
-
-### Primeros pasos
-
-Cuando ya estés lista para codear, te sugerimos empezar de esta manera:
-
-1. Una de las integrantes del equipo debe realizar un :fork*and_knife:
-   [fork](https://help.github.com/articles/fork-a-repo/) del repo de tu cohort,
-   tus \_coaches* te compartirán un _link_ a un repo y te darán acceso de lectura
-   en ese repo. La otra integrante del equipo deber hacer un fork **del
-   repositorio de su compañera** y
-   [configurar](https://gist.github.com/BCasal/026e4c7f5c71418485c1) un `remote`
-   hacia el mismo.
-2. :arrow_down: [Clona](https://help.github.com/articles/cloning-a-repository/)
-   tu _fork_ a tu computadora (copia local).
-3. 📦 Instala las dependencias del proyecto con el comando `npm install`. Esto
-   asume que has instalado [Node.js](https://nodejs.org/) (que incluye [npm](https://docs.npmjs.com/)).
-4. Si todo ha ido bien, deberías poder ejecutar las :traffic_light:
-   pruebas unitarias (unit tests) con el comando `npm test`.
-5. Para ver la interfaz de tu programa en el navegador, usa el comando
-   `npm start` para arrancar el servidor web y dirígete a
-   `http://localhost:5000` en tu navegador.
-6. A codear se ha dicho! :rocket:
+<p align="center">
+<img 
+src="images\Desktop Lan-desktop.png"/>
+</p>
+<p align="center"><strong>Figura 8.</strong> Prototipo Desktop</p>
+<br/>

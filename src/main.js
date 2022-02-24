@@ -144,7 +144,7 @@ cerrarX.addEventListener('click', () => {
 });
 
 modalContenedor.addEventListener('click', (event) => {
-  if (event.target == modalContenedor) {
+  if (event.target === modalContenedor) {
     modalContenedor.style.visibility = 'hidden';
   }
 });
