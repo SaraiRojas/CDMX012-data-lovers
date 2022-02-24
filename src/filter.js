@@ -5,13 +5,15 @@
  * @returns {[]} peliculas que contengan search en titulo o la descripción
  */
 export const filterFilmsBySearch = (films, search) => films.filter((film) => {
-    const titleLowercase = film.title.toLowerCase();
-    const descriptionLowercase = film.description.toLowerCase();
-    const searchLowercase = search.toLowerCase();
+    if (search === "") { return films; } else {
+        const titleLowercase = film.title.toLowerCase();
+        const descriptionLowercase = film.description.toLowerCase();
+        const searchLowercase = search.toLowerCase();
 
-    return (titleLowercase.includes(searchLowercase) ||
-        descriptionLowercase.includes(searchLowercase) ||
-        namesInclude(film.people, search));
+        return (titleLowercase.includes(searchLowercase) ||
+            descriptionLowercase.includes(searchLowercase) ||
+            namesInclude(film.people, search));
+    }
 });
 
 /**
@@ -49,34 +51,49 @@ function peopleFilter(people, search) {
  */
 export const filterCharactersBySearch = (films, search) => {
     const personInclude = [];
-
-    films.forEach((film) => {
-        let fimlActors = peopleFilter(film.people, search);
-
-        fimlActors.forEach((person) => {
-            person.title = film.title;
-
-            personInclude.push(person);
-
-            // const obj = { img: person.img, name: person.name, title: film.title };
-            // personInclude.push(obj);
+    if (search === "") {
+        films.forEach((film) => {
+            film.people.forEach((person) => {
+                person.title = film.title;
+                personInclude.push(person);
+            });
         });
-    });
+    } else {
+        films.forEach((film) => {
+            let filmActors = peopleFilter(film.people, search);
+
+            filmActors.forEach((person) => {
+                person.title = film.title;
+
+                personInclude.push(person);
+            });
+        });
+    }
 
     return personInclude;
 };
 
 export const filterLocationBySearch = (films, search) => {
     const locationInclud = [];
-
-    films.forEach((film) => {
-        let filmLocation = locationsFilter(film.locations, search);
-
-        filmLocation.forEach((location) => {
-            location.title = film.title;
-            locationInclud.push(location);
+    if (search === "") {
+        films.forEach((film) => {
+            film.locations.forEach((location) => {
+                location.title = film.title;
+                locationInclud.push(location);
+            });
         });
-    });
+
+    } else {
+        films.forEach((film) => {
+            let filmLocation = locationsFilter(film.locations, search);
+
+            filmLocation.forEach((location) => {
+                location.title = film.title;
+                locationInclud.push(location);
+            });
+        });
+    }
+
     return locationInclud;
 };
 
@@ -98,15 +115,24 @@ function locationsFilter(locations, search) {
 
 export const filterVehiclesBySearch = (films, search) => {
     const vehicleInclud = [];
-
-    films.forEach((film) => {
-        let filmVehicle = vehiclesFilter(film.vehicles, search);
-
-        filmVehicle.forEach((vehicle) => {
-            vehicle.title = film.title;
-            vehicleInclud.push(vehicle);
+    if (search === "") {
+        films.forEach((film) => {
+            film.vehicles.forEach((vehicle) => {
+                vehicle.title = film.title;
+                vehicleInclud.push(vehicle);
+            });
         });
-    });
+
+    } else {
+        films.forEach((film) => {
+            let filmVehicle = vehiclesFilter(film.vehicles, search);
+
+            filmVehicle.forEach((vehicle) => {
+                vehicle.title = film.title;
+                vehicleInclud.push(vehicle);
+            });
+        });
+    }
     return vehicleInclud;
 };
 
